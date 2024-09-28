@@ -21,6 +21,10 @@ h2 {
   color: #007bff;
 }
 
+h1 {
+  margin-bottom: 0;
+}
+
 .section {
   margin-bottom: 20px;
 }

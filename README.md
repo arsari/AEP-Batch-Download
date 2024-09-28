@@ -69,7 +69,7 @@ These skills and technologies together demonstrate the ability to develop secure
 
 The project is hosted in Render.com and can be accessed via the following live URL:
 
-[AEP Dataset: Preview and Download Failed Batches](https://aep-batch-download.onrender.com/)
+[AEP Dataset: Preview and Download Failed Batches](https://aep-batch-download.onrender.com)
 
 =====
 
