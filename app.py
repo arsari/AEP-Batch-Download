@@ -17,23 +17,23 @@ AEP_ENDPOINT = os.getenv("AEP_ENDPOINT")
 def index():
     return render_template('index.html')
 
-@app.route('/download_batches', methods=['POST'])
-def download_batches():
+@app.route('/preview_batches', methods=['POST'])
+def preview_batches():
     batch_ids = request.form.get('batch_ids')
     if not batch_ids:
         return jsonify({"error": "No batch IDs provided"}), 400
 
     batch_ids_list = batch_ids.split(',')
-    failed_batches = []
+    batch_previews = []
 
     for batch_id in batch_ids_list:
         response = get_failed_batch(batch_id.strip())
         if response.status_code == 200:
-            failed_batches.append(response.json())
+            batch_previews.append({"batch_id": batch_id, "data": response.json()})
         else:
-            failed_batches.append({"batch_id": batch_id, "error": "Failed to retrieve data"})
+            batch_previews.append({"batch_id": batch_id, "error": "Failed to retrieve data"})
 
-    return jsonify(failed_batches)
+    return jsonify(batch_previews)
 
 def get_failed_batch(batch_id):
     headers = {
@@ -47,5 +47,13 @@ def get_failed_batch(batch_id):
 
     return response
 
+@app.route('/download_batch_data', methods=['POST'])
+def download_batch_data():
+    batch_data = request.get_json()
+    if not batch_data:
+        return jsonify({"error": "No batch data provided"}), 400
+
+    return jsonify(batch_data), 200
+
 if __name__ == '__main__':
-    app.run() # debug=True, host='0.0.0.0')
+    app.run() # debug=True, host='0.0.0.0'
