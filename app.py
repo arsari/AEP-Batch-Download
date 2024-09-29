@@ -20,8 +20,8 @@ def index():
 @app.route('/preview_batches', methods=['POST'])
 def preview_batches():
     batch_ids = request.form.get('batch_ids')
-    # if not batch_ids:
-    #     return jsonify({"error": "No batch IDs provided"}), 400
+    if not batch_ids:
+        return jsonify({"error": "No batch IDs provided"}), 400
 
     batch_ids_list = batch_ids.split(',')
     batch_previews = []
