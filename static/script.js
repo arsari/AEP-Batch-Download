@@ -1,9 +1,9 @@
 function previewBatches() {
   const batchIds = document.getElementById('batch_ids').value;
-  if (batchIds.trim() == '') {
-    alert('Batch IDs must be filled out');
-    return false;
-  }
+  // if (batchIds.trim() == '') {
+  //   alert('Batch IDs must be filled out');
+  //   return false;
+  // }
 
   // Show loading spinner
   document.getElementById('loading').style.display = 'block';
