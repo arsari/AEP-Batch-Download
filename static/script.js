@@ -1,9 +1,9 @@
 function previewBatches() {
   const batchIds = document.getElementById('batch_ids').value;
-  // if (batchIds.trim() == '') {
-  //   alert('Batch IDs must be filled out');
-  //   return false;
-  // }
+  if (batchIds.trim() == '') {
+    alert('No batch IDs provided');
+    return false;
+  }
 
   // Show loading spinner
   document.getElementById('loading').style.display = 'block';
@@ -20,15 +20,14 @@ function previewBatches() {
     .then((data) => {
       // Hide loading spinner
       document.getElementById('loading').style.display = 'none';
+      const responseDiv = document.getElementById('response');
 
       if (data.error) {
-        document.getElementById('response').innerHTML = `<div class="error-message">Error: ${data.error}</div>`;
+        responseDiv.innerHTML = `<div class="error-message">Error: ${data.error}</div>`;
         return;
       }
 
-      const responseDiv = document.getElementById('response');
       responseDiv.innerHTML = '';
-
       let previewHtml = '<ul class="batch-list">';
 
       data.forEach((batch) => {
