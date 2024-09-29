@@ -44,6 +44,12 @@ input[type="text"] {
   font-size: 1rem;
 }
 
+#inline-error {
+  font-weight: bold;
+  margin: -18px 0 20px 0;
+  color: #d9534f;
+}
+
 .btn {
   background-color: #007bff;
   color: #fff;
@@ -61,7 +67,6 @@ input[type="text"] {
 .loading {
   font-style: italic;
   color: #007bff;
-  margin-top: 10px;
 }
 
 .response-container {

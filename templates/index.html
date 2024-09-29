@@ -26,9 +26,10 @@
         <form id="batchForm">
           <label for="batch_ids">Enter Batch IDs (comma-separated without space):</label>
           <input type="text" id="batch_ids" name="batch_ids" placeholder="e.g., batch1,batch2,batch3" required>
+          <div id="inline-error" class="error-message" style="display: none;"></div>
           <button type="button" class="btn" onclick="previewBatches()">Preview Batches</button>
         </form>
-        <div id="loading" style="display:none;" class="loading">Loading...</div>
+        <p id="loading" style="display: none;" class="loading">Loading...</p>
       </section>
 
       <!-- Preview Section -->

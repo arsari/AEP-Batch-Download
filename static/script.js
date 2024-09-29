@@ -1,11 +1,14 @@
 function previewBatches() {
   const batchIds = document.getElementById('batch_ids').value;
-  if (batchIds.trim() == '') {
-    alert('No batch IDs provided');
+  if (batchIds.trim() === '') {
+    document.getElementById('previewSection').style.display = 'none';
+    document.getElementById('inline-error').style.display = 'block';
+    document.getElementById('inline-error').innerText = 'No Batch IDs provided';
     return false;
   }
 
   // Show loading spinner
+  document.getElementById('inline-error').style.display = 'none';
   document.getElementById('loading').style.display = 'block';
   document.getElementById('previewSection').style.display = 'block';
 
