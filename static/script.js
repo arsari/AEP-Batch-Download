@@ -22,7 +22,7 @@ function previewBatches() {
       document.getElementById('loading').style.display = 'none';
 
       if (data.error) {
-        document.getElementById('response').innerHTML = `<div class="error-message">Error: ${data}</div>`;
+        document.getElementById('response').innerHTML = `<div class="error-message">Error: ${data.error}</div>`;
         return;
       }
 
