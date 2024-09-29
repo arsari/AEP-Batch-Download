@@ -7,7 +7,7 @@ function previewBatches() {
 
   // Show loading spinner
   document.getElementById('loading').style.display = 'block';
-  document.getElementById('response').innerHTML = '';
+  document.getElementById('previewSection').style.display = 'block';
 
   fetch('/preview_batches', {
     method: 'POST',
